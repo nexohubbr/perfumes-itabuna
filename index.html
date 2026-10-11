@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfumes em Itabuna | Inspirados, Brand, Árabes e Originais</title>
+<meta name="description" content="Catálogo local de perfumes em Itabuna, Bahia. Inspirados, Brand, Árabes e Originais. Compare e consulte disponibilidade pelo WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #111111;
+    --card: #0f0f0f;
+    --border: #2a2520;
+    --border-light: #3d3528;
+    --text: #f5f0e8;
+    --muted: #9a9080;
+    --accent: #c9a961;
+    --accent-2: #e0c882;
+    --accent-dark: #8b7340;
+    --ok: #34d399;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav {
+    max-width: 1200px; margin: 0 auto;
+    padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 20px;
+    color: var(--accent);
+  }
+  .logo span { color: var(--text); }
+  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .nav-links a {
+    font-size: 14px; color: var(--muted);
+    transition: color .2s;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--accent-2); }
+  .btn-wa {
+    background: transparent;
+    color: #25d366;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1.5px solid #25d366;
+    transition: all .2s;
+  }
+  .btn-wa:hover { background: #25d366; color: #000; }
+
+  /* HERO */
+  .hero {
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--accent);
+    border: 1px solid var(--border-light);
+    padding: 7px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 680px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+  }
+  .hero-actions {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all .2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-primary { background: var(--accent); color: #000; }
+  .btn-primary:hover { background: var(--accent-2); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; border-color: var(--border-light); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-2); }
+
+  .hero-stats {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 760px;
+    margin-left: auto; margin-right: auto;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+  }
+  .stat strong { display: block; color: var(--accent); font-size: 20px; font-family: 'Playfair Display', serif; }
+  .stat span { font-size: 10px; color: var(--muted); letter-spacing: 1.5px; font-weight: 600; }
+
+  /* CATALOG */
+  .catalog {
+    max-width: 1200px; margin: 0 auto;
+    padding: 50px 24px 70px;
+  }
+  .catalog-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 16px;
+    margin-bottom: 28px;
+  }
+  .catalog-head h2 { font-family: 'Playfair Display', serif; font-size: 32px; }
+  .catalog-head p { color: var(--muted); font-size: 14px; }
+
+  .filters {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 28px;
+    padding: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .filter-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .filter-group + .filter-group { margin-left: 12px; padding-left: 16px; border-left: 1px solid var(--border); }
+  .filter-group label { font-size: 11px; color: var(--muted); letter-spacing: 1.5px; margin-right: 6px; font-weight: 600; }
+  .chip {
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .2s;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .chip:hover { color: var(--text); border-color: var(--accent); }
+  .chip.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  .search {
+    flex: 1; min-width: 200px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+  }
+  .search:focus { outline: none; border-color: var(--accent); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-dark);
+    box-shadow: 0 12px 40px rgba(201,169,97,0.08);
+  }
+  .card-img {
+    aspect-ratio: 1/1;
+    background: linear-gradient(145deg, #1a1510, #0a0808);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .card-img .placeholder {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent-dark);
+  }
+
+  /* SVG FRASCO */
+  .bottle-svg {
+    width: 65%;
+    max-width: 200px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));
+  }
+
+  .card-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--accent);
+    color: #000;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+  .card-body { padding: 20px; }
+  .card-ref { font-size: 12px; color: var(--accent); letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 500; }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .card-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+  .card-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-price-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .card-price {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+  .card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1.5px solid var(--border-light);
+    border-radius: 12px;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+  .card-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+  .empty {
+    text-align: center;
+    padding: 70px 20px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* EXPERIENCE */
+  .experience {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 24px;
+  }
+  .experience-inner { max-width: 1200px; margin: 0 auto; }
+  .experience h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    margin-bottom: 10px;
+  }
+  .experience h2 em { color: var(--accent); font-style: normal; }
+  .experience > .experience-inner > p { color: var(--muted); margin-bottom: 44px; font-weight: 300; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .step-num {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .step h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 10px; }
+  .step p { color: var(--muted); font-size: 14px; font-weight: 300; }
+
+  /* BUY */
+  .buy {
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .buy h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); margin-bottom: 10px; }
+  .buy > p { color: var(--muted); margin-bottom: 34px; font-weight: 300; }
+  .buy-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .buy-step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+  }
+  .buy-step h3 { font-size: 17px; margin-bottom: 10px; color: var(--accent); font-weight: 600; }
+  .buy-step p { color: var(--muted); font-size: 14px; font-weight: 300; }
+
+  /* SEO */
+  .seo {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    padding: 70px 24px;
+  }
+  .seo-inner { max-width: 900px; margin: 0 auto; }
+  .seo h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 16px; }
+  .seo p { color: var(--muted); margin-bottom: 14px; font-size: 15px; font-weight: 300; }
+
+  /* FAQ */
+  .faq {
+    max-width: 900px; margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .faq h2 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 10px; }
+  .faq > p { color: var(--muted); margin-bottom: 30px; font-weight: 300; }
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .faq-q::after {
+    content: "+";
+    color: var(--accent);
+    font-size: 24px;
+    transition: transform .2s;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-a-inner { padding: 0 22px 20px; }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(145deg, #1a1510, #0a0808);
+    border-top: 1px solid var(--border);
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 34px); margin-bottom: 14px; }
+  .cta p { color: var(--muted); margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    padding: 50px 24px 28px;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+  }
+  .footer-col h4 {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .footer-col p, .footer-col a {
+    color: var(--muted);
+    font-size: 13px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 300;
+  }
+  .footer-col a:hover { color: var(--accent-2); }
+  .footer-bottom {
+    max-width: 1200px; margin: 36px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* FLOATING WHATSAPP */
+  .float-wa {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 60px; height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    z-index: 40;
+    transition: transform .2s;
+  }
+  .float-wa:hover { transform: scale(1.08); }
+  .float-wa svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* UPLOAD MANAGER BUTTON (OCULTO) */
+  .upload-manager-btn {
+    position: fixed;
+    bottom: 100px; right: 24px;
+    width: 50px; height: 50px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 41;
+    display: none;
+    align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(201,169,97,0.4);
+    transition: transform .2s;
+  }
+  .upload-manager-btn:hover { transform: scale(1.08); background: var(--accent-2); }
+  .upload-manager-btn svg { width: 24px; height: 24px; }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    max-width: 900px; width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .modal-head {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .modal-head h3 { font-family: 'Playfair Display', serif; font-size: 20px; }
+  .modal-head p { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 300; }
+  .modal-close {
+    background: transparent; border: none;
+    color: var(--muted); font-size: 26px;
+    cursor: pointer;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    transition: all .2s;
+  }
+  .modal-close:hover { background: var(--bg-2); color: var(--text); }
+  .modal-body {
+    padding: 22px 24px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .upload-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+  }
+  .upload-item {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .upload-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .upload-item-img {
+    aspect-ratio: 1/1;
+    background: linear-gradient(145deg, #1a1510, #0a0808);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .upload-item-img img { width: 100%; height: 100%; object-fit: cover; }
+  .upload-item-img .placeholder {
+    color: var(--accent-dark); font-size: 12px; text-align: center; padding: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  .upload-item-info {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+  .upload-item-info strong { display: block; font-size: 13px; margin-bottom: 3px; font-family: 'Playfair Display', serif; }
+  .upload-item-info span { color: var(--muted); font-size: 10px; }
+
+  .toast {
+    position: fixed;
+    bottom: 34px; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--ok);
+    color: #000;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    z-index: 200;
+    transition: transform .3s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 640px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .filter-group + .filter-group { margin-left: 0; padding-left: 0; border-left: none; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <div class="logo">PERFUMES <span>• ITABUNA</span></div>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#como-comprar">Como comprar</a>
+      <a href="#itabuna">Itabuna</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn-wa" href="https://wa.me/5573991281765?text=Ol%C3%A1!%20Quero%20consultar%20perfumes%20em%20Itabuna." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <span class="tag">CATÁLOGO LOCAL • ITABUNA, BAHIA</span>
+  <h1>Perfumes em Itabuna para encontrar o seu <em>sem complicação</em>.</h1>
+  <p>Explore Inspirados, Brand, Árabes e Originais. Compare referência, público, volume e preço de vitrine — depois consulte a disponibilidade diretamente pelo WhatsApp.</p>
+  <div class="hero-actions">
+    <a href="#catalogo" class="btn btn-primary">Explorar catálogo</a>
+    <a href="https://wa.me/5573991281765?text=Ol%C3%A1!%20Estou%20em%20Itabuna%20e%20quero%20ajuda%20para%20escolher%20um%20perfume." target="_blank" rel="noopener" class="btn btn-ghost">Falar com atendimento</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><strong>4</strong><span>CATEGORIAS</span></div>
+    <div class="stat"><strong>3</strong><span>PÚBLICOS</span></div>
+    <div class="stat"><strong>PIX</strong><span>PAGAMENTO</span></div>
+    <div class="stat"><strong>BA</strong><span>ATENDIMENTO</span></div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalogo">
+  <div class="catalog-head">
+    <div>
+      <h2>Catálogo</h2>
+      <p>Escolha por estilo, tipo ou público.</p>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label>TIPO</label>
+      <button class="chip active" data-filter="tipo" data-value="todos">Todos</button>
+      <button class="chip" data-filter="tipo" data-value="Inspirado">Inspirados</button>
+      <button class="chip" data-filter="tipo" data-value="Brand">Brand</button>
+      <button class="chip" data-filter="tipo" data-value="Árabe">Árabes</button>
+      <button class="chip" data-filter="tipo" data-value="Original">Originais</button>
+    </div>
+    <div class="filter-group">
+      <label>PÚBLICO</label>
+      <button class="chip active" data-filter="publico" data-value="todos">Todos</button>
+      <button class="chip" data-filter="publico" data-value="Feminino">Feminino</button>
+      <button class="chip" data-filter="publico" data-value="Masculino">Masculino</button>
+      <button class="chip" data-filter="publico" data-value="Unissex">Unissex</button>
+    </div>
+    <input type="text" class="search" id="search" placeholder="Buscar por nome ou referência...">
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none;">Nenhum perfume encontrado. Tente outra palavra ou combinação de filtros.</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div class="experience-inner">
+    <h2>A experiência <em>Premium</em> onde realmente importa.</h2>
+    <p>Do catálogo ao perfume, em três passos simples.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01 · ENCONTRE</span>
+        <h3>Pesquise</h3>
+        <p>Pesquise pelo nome da fragrância, referência, marca ou característica e use os filtros para reduzir as opções.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02 · COMPARE</span>
+        <h3>Veja detalhes</h3>
+        <p>Veja categoria, público, volume e preço de vitrine antes de entrar em contato.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03 · CONSULTE</span>
+        <h3>Confirme</h3>
+        <p>Confirme disponibilidade, preço final, pagamento e forma de entrega diretamente pelo WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUY -->
+<section class="buy" id="como-comprar">
+  <h2>Do catálogo ao perfume.</h2>
+  <p>Sua compra em três passos claros.</p>
+  <div class="buy-steps">
+    <div class="buy-step">
+      <h3>1. Escolha sua referência</h3>
+      <p>Encontre a fragrância desejada ou peça ajuda para descobrir uma opção.</p>
+    </div>
+    <div class="buy-step">
+      <h3>2. Consulte no WhatsApp</h3>
+      <p>Envie o produto e confirme preço, estoque ou necessidade de pedido.</p>
+    </div>
+    <div class="buy-step">
+      <h3>3. Combine a entrega</h3>
+      <p>Em Itabuna, quando houver estoque pronto, pode ser combinada entrega por Uber/99, com a corrida paga pelo cliente, ou retirada local.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEO -->
+<section class="seo" id="itabuna">
+  <div class="seo-inner">
+    <h2>Perfumes em Itabuna, Bahia</h2>
+    <p>Este catálogo foi organizado para quem procura perfumes em Itabuna e quer comparar opções antes de comprar. Aqui você encontra quatro grupos diferentes: perfumes Inspirados, Brand, perfumes Árabes e perfumes Originais.</p>
+    <p>Se você está em Itabuna e região, consulte pelo WhatsApp a disponibilidade do perfume desejado. Para produtos prontos em estoque, a entrega local pode ser combinada por Uber ou 99, com o custo da corrida pago pelo cliente. Quando o item precisar ser pedido ao fornecedor, confirme o prazo e a forma de envio.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <h2>Perguntas frequentes</h2>
+  <p>Antes de comprar</p>
+
+  <div class="faq-item">
+    <div class="faq-q">O que é um perfume Inspirado?</div>
+    <div class="faq-a"><div class="faq-a-inner">É uma fragrância apresentada como inspiração em uma referência olfativa conhecida. No catálogo, os Inspirados são apresentados em embalagem própria e, quando indicado, em 100 ml. Eles não são os perfumes originais das marcas citadas como referência.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">O que significa Brand?</div>
+    <div class="faq-a"><div class="faq-a-inner">Brand identifica uma categoria distinta dos Inspirados neste catálogo. Os volumes podem variar conforme o produto. Consulte cada ficha para saber volume, preço e disponibilidade.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">O que são os perfumes Árabes?</div>
+    <div class="faq-a"><div class="faq-a-inner">São perfumes de casas e marcas árabes, com suas próprias fragrâncias. Eles formam uma categoria separada dos Inspirados.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">O que são os Originais?</div>
+    <div class="faq-a"><div class="faq-a-inner">São perfumes originais de suas respectivas marcas. O preço e a disponibilidade devem ser confirmados no atendimento.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Como funciona a entrega em Itabuna?</div>
+    <div class="faq-a"><div class="faq-a-inner">Quando houver produto pronto para entrega local, pode ser combinada corrida por Uber ou 99, paga pelo cliente, ou retirada local quando disponível. Se o produto precisar vir do fornecedor, confirme o prazo e o envio para o endereço informado.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">O preço mostrado no catálogo é definitivo?</div>
+    <div class="faq-a"><div class="faq-a-inner">Não necessariamente. O catálogo apresenta preço de vitrine quando informado. Antes do pagamento, confirme pelo WhatsApp preço final, disponibilidade, volume, forma de pagamento e prazo.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Já sabe qual perfume procura?</h2>
+  <p>Envie o nome da fragrância. Se ainda estiver em dúvida, diga se procura algo doce, fresco, amadeirado, marcante, elegante ou outro estilo.</p>
+  <a href="https://wa.me/5573991281765?text=Ol%C3%A1!%20Estou%20em%20Itabuna%20e%20quero%20consultar%20um%20perfume." target="_blank" rel="noopener" class="btn btn-primary">💬 Consultar pelo WhatsApp</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>PERFUMES • ITABUNA</h4>
+      <p>Catálogo local de Inspirados, Brand, Árabes e Originais. Consulte disponibilidade antes da compra.</p>
+    </div>
+    <div class="footer-col">
+      <h4>PAGAMENTO</h4>
+      <p>PIX</p>
+      <p>Cartão</p>
+      <p>À vista</p>
+    </div>
+    <div class="footer-col">
+      <h4>ATENDIMENTO</h4>
+      <p>Itabuna • Bahia</p>
+      <a href="https://wa.me/5573991281765" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Produtos classificados como Inspirados não são fabricados, patrocinados, endossados ou afiliados às marcas citadas como referência. Os nomes das fragrâncias são usados para identificar a referência olfativa. Marcas e fragrâncias originais pertencem aos respectivos titulares.</p>
+    <p style="margin-top:10px;">© Perfumes em Itabuna. Catálogo sujeito a alteração de preço e disponibilidade.</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/5573991281765?text=Ol%C3%A1!%20Quero%20consultar%20um%20perfume%20em%20Itabuna." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- UPLOAD MANAGER BUTTON (OCULTO - só aparece com ?admin=secreto123) -->
+<button class="upload-manager-btn" id="uploadBtn" title="Gerenciar imagens (Acesso Restrito)" aria-label="Gerenciar imagens">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <circle cx="8.5" cy="8.5" r="1.5"/>
+    <polyline points="21 15 16 10 5 21"/>
+  </svg>
+</button>
+
+<!-- UPLOAD MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3>Gerenciar imagens</h3>
+        <p>Clique em um produto para colar o link da imagem (ImgBB). As alterações são salvas localmente.</p>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="upload-grid" id="uploadGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Imagem atualizada com sucesso!</div>
+
+<script>
+/* ================= DADOS DO CATÁLOGO ================= */
+const produtos = [
+  { id:'insp-goodgirl', tipo:'Inspirado', ref:'Good Girl', nome:'Good Girl', desc:'Doce, floral e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-lavie', tipo:'Inspirado', ref:'La Vie Est Belle', nome:'La Vie Est Belle', desc:'Doce, elegante e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-libre', tipo:'Inspirado', ref:'Libre', nome:'Libre', desc:'Floral, sofisticado e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-jadore', tipo:'Inspirado', ref:"J'adore", nome:"J'adore", desc:'Floral, luminoso e elegante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-212viprose', tipo:'Inspirado', ref:'212 VIP Rosé', nome:'212 VIP Rosé', desc:'Floral, feminino e moderno.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-212nyc', tipo:'Inspirado', ref:'212 NYC', nome:'212 NYC', desc:'Floral, urbano e sofisticado.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-scandal', tipo:'Inspirado', ref:'Scandal', nome:'Scandal', desc:'Doce, intenso e provocante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-olymp', tipo:'Inspirado', ref:'Olympéa', nome:'Olympéa', desc:'Doce, salgado e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-ladym', tipo:'Inspirado', ref:'Lady Million', nome:'Lady Million', desc:'Floral, doce e poderoso.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-coco', tipo:'Inspirado', ref:'Coco Mademoiselle', nome:'Coco Mademoiselle', desc:'Elegante, cítrico e sofisticado.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-chance', tipo:'Inspirado', ref:'Chance', nome:'Chance', desc:'Floral, delicado e refinado.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-euphoria', tipo:'Inspirado', ref:'Euphoria', nome:'Euphoria', desc:'Floral, exótico e sensual.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-flower', tipo:'Inspirado', ref:'Flower by Kenzo', nome:'Flower by Kenzo', desc:'Floral, delicado e atemporal.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-212sexy', tipo:'Inspirado', ref:'212 Sexy', nome:'212 Sexy', desc:'Doce, sensual e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-angel', tipo:'Inspirado', ref:'Angel', nome:'Angel', desc:'Doce, intenso e icônico.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-sauvage', tipo:'Inspirado', ref:'Sauvage', nome:'Sauvage', desc:'Fresco, amadeirado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-invictus', tipo:'Inspirado', ref:'Invictus', nome:'Invictus', desc:'Fresco, esportivo e vibrante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-1m', tipo:'Inspirado', ref:'1 Million', nome:'1 Million', desc:'Doce, especiado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-bleu', tipo:'Inspirado', ref:'Bleu de Chanel', nome:'Bleu de Chanel', desc:'Cítrico, amadeirado e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-acqua', tipo:'Inspirado', ref:"Acqua di Giò", nome:"Acqua di Giò", desc:'Aquático, fresco e versátil.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-aventus', tipo:'Inspirado', ref:'Aventus', nome:'Aventus', desc:'Frutado, amadeirado e sofisticado.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-lemale', tipo:'Inspirado', ref:'Le Male', nome:'Le Male', desc:'Aromático, doce e clássico.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-lemaleelixir', tipo:'Inspirado', ref:'Le Male Elixir', nome:'Le Male Elixir', desc:'Doce, quente e intenso.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-ultramale', tipo:'Inspirado', ref:'Ultra Male', nome:'Ultra Male', desc:'Doce, frutado e potente.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-eros', tipo:'Inspirado', ref:'Eros', nome:'Eros', desc:'Fresco, doce e sedutor.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-dylan', tipo:'Inspirado', ref:'Dylan Blue', nome:'Dylan Blue', desc:'Fresco, aromático e amadeirado.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-allure', tipo:'Inspirado', ref:'Allure Homme Sport', nome:'Allure Homme Sport', desc:'Fresco, cítrico e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-boss', tipo:'Inspirado', ref:'Boss Bottled', nome:'Boss Bottled', desc:'Frutado, amadeirado e versátil.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-polored', tipo:'Inspirado', ref:'Polo Red', nome:'Polo Red', desc:'Frutado, doce e energético.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'insp-lacoste', tipo:'Inspirado', ref:'Lacoste L.12.12 Blanc', nome:'Lacoste L.12.12 Blanc', desc:'Fresco, limpo e casual.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
+  { id:'brand-goodgirl', tipo:'Brand', ref:'Good Girl', nome:'Good Girl', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-lavie', tipo:'Brand', ref:'La Vie Est Belle', nome:'La Vie Est Belle', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-libre', tipo:'Brand', ref:'Libre', nome:'Libre', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-jadore', tipo:'Brand', ref:"J'adore", nome:"J'adore", desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-coco', tipo:'Brand', ref:'Coco Mademoiselle', nome:'Coco Mademoiselle', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-212vip', tipo:'Brand', ref:'212 VIP Rosé', nome:'212 VIP Rosé', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-sauvage', tipo:'Brand', ref:'Sauvage', nome:'Sauvage', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-invictus', tipo:'Brand', ref:'Invictus', nome:'Invictus', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-1m', tipo:'Brand', ref:'1 Million', nome:'1 Million', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'brand-bleu', tipo:'Brand', ref:'Bleu de Chanel', nome:'Bleu de Chanel', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90', imagem: '' },
+  { id:'ara-yara', tipo:'Árabe', ref:'Lattafa · Yara', nome:'Yara', desc:'Doce, cremosa e feminina.', publico:'Feminino', vol:'100 ml', preco:'R$ 199,90', imagem: '' },
+  { id:'ara-ameerat', tipo:'Árabe', ref:'Lattafa · Ameerat Al Arab', nome:'Ameerat Al Arab', desc:'Doce, floral e elegante.', publico:'Feminino', vol:'100 ml', preco:'R$ 199,90', imagem: '' },
+  { id:'ara-badee', tipo:'Árabe', ref:"Lattafa · Bade'e Al Oud Amethyst", nome:"Bade'e Al Oud Amethyst", desc:'Floral, intenso e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 229,90', imagem: '' },
+  { id:'ara-fakharrose', tipo:'Árabe', ref:'Lattafa · Fakhar Rose', nome:'Fakhar Rose', desc:'Floral, doce e sofisticado.', publico:'Feminino', vol:'100 ml', preco:'R$ 199,90', imagem: '' },
+  { id:'ara-khamrah', tipo:'Árabe', ref:'Lattafa · Khamrah', nome:'Khamrah', desc:'Doce, especiado e envolvente.', publico:'Unissex', vol:'100 ml', preco:'R$ 229,90', imagem: '' },
+  { id:'ara-khamrahq', tipo:'Árabe', ref:'Lattafa · Khamrah Qahwa', nome:'Khamrah Qahwa', desc:'Café, especiarias e calor.', publico:'Unissex', vol:'100 ml', preco:'R$ 239,90', imagem: '' },
+  { id:'ara-oudglory', tipo:'Árabe', ref:'Lattafa · Oud for Glory', nome:'Oud for Glory', desc:'Oud, amadeirado e intenso.', publico:'Unissex', vol:'100 ml', preco:'R$ 229,90', imagem: '' },
+  { id:'ara-asad', tipo:'Árabe', ref:'Lattafa · Asad', nome:'Asad', desc:'Especiado, amadeirado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 199,90', imagem: '' },
+  { id:'ara-cdnim', tipo:'Árabe', ref:'Armaf · Club de Nuit Intense Man', nome:'Club de Nuit Intense Man', desc:'Cítrico, frutado e amadeirado.', publico:'Masculino', vol:'105 ml', preco:'R$ 299,90', imagem: '' },
+  { id:'ara-hawas', tipo:'Árabe', ref:'Rasasi · Hawas', nome:'Hawas', desc:'Aquático, frutado e vibrante.', publico:'Masculino', vol:'100 ml', preco:'R$ 279,90', imagem: '' },
+  { id:'ara-laventure', tipo:'Árabe', ref:"Al Haramain · L'Aventure", nome:"L'Aventure", desc:'Cítrico, amadeirado e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 249,90', imagem: '' },
+  { id:'ara-fakharblack', tipo:'Árabe', ref:'Lattafa · Fakhar Black', nome:'Fakhar Black', desc:'Aromático, fresco e amadeirado.', publico:'Masculino', vol:'100 ml', preco:'R$ 199,90', imagem: '' },
+  { id:'ori-goodgirl', tipo:'Original', ref:'Carolina Herrera · Good Girl', nome:'Good Girl', desc:'Perfume original de marca.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-lavie', tipo:'Original', ref:'Lancôme · La Vie Est Belle', nome:'La Vie Est Belle', desc:'Perfume original de marca.', publico:'Feminino', vol:'75 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-libre', tipo:'Original', ref:'Yves Saint Laurent · Libre', nome:'Libre', desc:'Perfume original de marca.', publico:'Feminino', vol:'90 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-jadore', tipo:'Original', ref:"Dior · J'adore", nome:"J'adore", desc:'Perfume original de marca.', publico:'Feminino', vol:'100 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-sauvage', tipo:'Original', ref:'Dior · Sauvage', nome:'Sauvage', desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-1m', tipo:'Original', ref:'Paco Rabanne · 1 Million', nome:'1 Million', desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-bleu', tipo:'Original', ref:'Chanel · Bleu de Chanel', nome:'Bleu de Chanel', desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar', imagem: '' },
+  { id:'ori-acqua', tipo:'Original', ref:"Giorgio Armani · Acqua di Giò", nome:"Acqua di Giò", desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar', imagem: '' },
+  { id:'bc-212', tipo:'Brand Collection', ref:'Brand Collection · 212 VIP Branco', nome:'212 VIP Branco', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'25 ml', preco:'Consultar', imagem: '' },
+  { id:'bc-alien', tipo:'Brand Collection', ref:'Brand Collection · Alien', nome:'Alien', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'25 ml', preco:'Consultar', imagem: '' },
+  { id:'bc-lavie', tipo:'Brand Collection', ref:'Brand Collection · La Vie', nome:'La Vie', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'25 ml', preco:'Consultar', imagem: '' },
+  { id:'bc-idole', tipo:'Brand Collection', ref:'Brand Collection · Idole', nome:'Idole', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
+  { id:'bc-jadore', tipo:'Brand Collection', ref:"Brand Collection · J'adore", nome:"J'adore", desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
+  { id:'bc-coco', tipo:'Brand Collection', ref:'Brand Collection · Coco Chanel', nome:'Coco Chanel', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
+];
+
+/* ================= ESTADO ================= */
+let filtros = { tipo: 'todos', publico: 'todos', busca: '' };
+const IMG_KEY = 'perfumes_itabuna_images_v2';
+let imagens = {};
+try { imagens = JSON.parse(localStorage.getItem(IMG_KEY) || '{}'); } catch(e) { imagens = {}; }
+
+/* ================= SVG FRASCO ================= */
+const bottleSVG = `<svg class="bottle-svg" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2218;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1510;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0808;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b7340;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Cap -->
+  <rect x="75" y="10" width="50" height="40" rx="4" fill="url(#capGrad)" />
+  <!-- Neck -->
+  <rect x="85" y="50" width="30" height="30" fill="#1a1510" />
+  <!-- Body -->
+  <rect x="40" y="80" width="120" height="180" rx="12" fill="url(#bottleGrad)" stroke="#3d3528" stroke-width="1.5"/>
+  <!-- Label lines -->
+  <line x1="60" y1="140" x2="140" y2="140" stroke="#c9a961" stroke-width="0.8" opacity="0.6"/>
+  <line x1="60" y1="200" x2="140" y2="200" stroke="#c9a961" stroke-width="0.8" opacity="0.6"/>
+  <!-- Text -->
+  <text x="100" y="175" text-anchor="middle" fill="#c9a961" font-family="Playfair Display, serif" font-size="14" font-weight="600" letter-spacing="2">PERFUME</text>
+</svg>`;
+
+/* ================= RENDERIZAÇÃO ================= */
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+
+function waLink(p) {
+  const txt = `Olá! Quero consultar o ${p.tipo} · Referência: ${p.ref}, ${p.vol}. Preço de vitrine: ${p.preco}. Estou em Itabuna.`;
+  return `https://wa.me/5573991281765?text=${encodeURIComponent(txt)}`;
+}
+
+function renderCard(p) {
+  const imgSrc = imagens[p.id] || p.imagem || '';
+  const imgHtml = imgSrc
+    ? `<img src="${imgSrc}" alt="${p.nome}" loading="lazy">`
+    : bottleSVG;
+  return `
+    <article class="card" data-tipo="${p.tipo}" data-publico="${p.publico}" data-busca="${(p.nome+' '+p.ref+' '+p.desc).toLowerCase()}">
+      <div class="card-img">
+        <span class="card-badge">${p.tipo.toUpperCase()}</span>
+        ${imgHtml}
+      </div>
+      <div class="card-body">
+        <div class="card-ref">${p.tipo} · Referência: ${p.ref}</div>
+        <div class="card-title">${p.nome}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-meta">
+          <span>${p.publico}</span>
+          <span>${p.vol}</span>
+        </div>
+        <div class="card-price-label">PREÇO DE VITRINE</div>
+        <div class="card-price">${p.preco}</div>
+        <a class="card-btn" href="${waLink(p)}" target="_blank" rel="noopener">💬 Consultar no WhatsApp</a>
+      </div>
+    </article>
+  `;
+}
+
+function render() {
+  const lista = produtos.filter(p => {
+    if (filtros.tipo !== 'todos' && p.tipo !== filtros.tipo) return false;
+    if (filtros.publico !== 'todos' && p.publico !== filtros.publico) return false;
+    if (filtros.busca) {
+      const b = filtros.busca.toLowerCase();
+      const hay = (p.nome + ' ' + p.ref + ' ' + p.desc + ' ' + p.tipo + ' ' + p.publico).toLowerCase();
+      if (!hay.includes(b)) return false;
+    }
+    return true;
+  });
+
+  if (lista.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    grid.innerHTML = lista.map(renderCard).join('');
+  }
+}
+
+/* ================= FILTROS ================= */
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const f = chip.dataset.filter;
+    const v = chip.dataset.value;
+    filtros[f] = v;
+    document.querySelectorAll(`.chip[data-filter="${f}"]`).forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('search').addEventListener('input', (e) => {
+  filtros.busca = e.target.value.trim();
+  render();
+});
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+
+/* ================= UPLOAD MANAGER ================= */
+const modal = document.getElementById('modal');
+const uploadBtn = document.getElementById('uploadBtn');
+const modalClose = document.getElementById('modalClose');
+const uploadGrid = document.getElementById('uploadGrid');
+const toast = document.getElementById('toast');
+let currentUploadId = null;
+
+function renderUploadGrid() {
+  uploadGrid.innerHTML = produtos.map(p => {
+    const imgSrc = imagens[p.id] || p.imagem || '';
+    const imgHtml = imgSrc
+      ? `<img src="${imgSrc}" alt="${p.nome}">`
+      : `<div class="placeholder">Clique para<br>adicionar imagem</div>`;
+    return `
+      <div class="upload-item" data-id="${p.id}">
+        <div class="upload-item-img">${imgHtml}</div>
+        <div class="upload-item-info">
+          <strong>${p.nome}</strong>
+          <span>${p.tipo} · ${p.vol}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  uploadGrid.querySelectorAll('.upload-item').forEach(item => {
+    item.addEventListener('click', () => {
+      currentUploadId = item.dataset.id;
+      const url = prompt('Cole o link direto da imagem (ImgBB ou outro host):\n\n1. Acesse https://imgbb.com/\n2. Faça upload da foto\n3. Clique em "Copiar link direto"\n4. Cole aqui:');
+      if (url && url.trim()) {
+        imagens[currentUploadId] = url.trim();
+        saveImages();
+        render();
+        renderUploadGrid();
+        const prod = produtos.find(p => p.id === currentUploadId);
+        showToast(`Imagem de "${prod ? prod.nome : 'produto'}" atualizada!`);
+      }
+      currentUploadId = null;
+    });
+  });
+}
+
+function saveImages() {
+  try {
+    localStorage.setItem(IMG_KEY, JSON.stringify(imagens));
+  } catch(e) {
+    alert('Não foi possível salvar. Armazenamento local cheio.');
+  }
+}
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+uploadBtn.addEventListener('click', () => {
+  renderUploadGrid();
+  modal.classList.add('active');
+});
+
+modalClose.addEventListener('click', () => {
+  modal.classList.remove('active');
+});
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) modal.classList.remove('active');
+});
+
+/* ================= SEGURANÇA: BOTÃO OCULTO ================= */
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('admin') === 'secreto123') {
+  uploadBtn.style.display = 'flex';
+}
+
+/* ================= INIT ================= */
+render();
+</script>
+
+</body>
+</html>
