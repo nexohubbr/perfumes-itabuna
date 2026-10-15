@@ -429,7 +429,7 @@
     <div class="modal-head">
       <div>
         <h3>Gerenciar imagens</h3>
-        <p>Clique em um produto para fazer upload da imagem real.</p>
+        <p>Clique em um produto para enviar a imagem real.</p>
       </div>
       <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
     </div>
@@ -457,11 +457,67 @@ const produtos = [
   { id:'insp-libre', tipo:'Inspirado', ref:'Libre', nome:'Libre', desc:'Floral, sofisticado e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
   { id:'insp-jadore', tipo:'Inspirado', ref:"J'adore", nome:"J'adore", desc:'Floral, luminoso e elegante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
   { id:'insp-212viprose', tipo:'Inspirado', ref:'212 VIP Rosé', nome:'212 VIP Rosé', desc:'Floral, feminino e moderno.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-212nyc', tipo:'Inspirado', ref:'212 NYC', nome:'212 NYC', desc:'Floral, urbano e sofisticado.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-scandal', tipo:'Inspirado', ref:'Scandal', nome:'Scandal', desc:'Doce, intenso e provocante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-olymp', tipo:'Inspirado', ref:'Olympéa', nome:'Olympéa', desc:'Doce, salgado e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-ladym', tipo:'Inspirado', ref:'Lady Million', nome:'Lady Million', desc:'Floral, doce e poderoso.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-coco', tipo:'Inspirado', ref:'Coco Mademoiselle', nome:'Coco Mademoiselle', desc:'Elegante, cítrico e sofisticado.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-chance', tipo:'Inspirado', ref:'Chance', nome:'Chance', desc:'Floral, delicado e refinado.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-euphoria', tipo:'Inspirado', ref:'Euphoria', nome:'Euphoria', desc:'Floral, exótico e sensual.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-flower', tipo:'Inspirado', ref:'Flower by Kenzo', nome:'Flower by Kenzo', desc:'Floral, delicado e atemporal.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-212sexy', tipo:'Inspirado', ref:'212 Sexy', nome:'212 Sexy', desc:'Doce, sensual e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-angel', tipo:'Inspirado', ref:'Angel', nome:'Angel', desc:'Doce, intenso e icônico.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90' },
   { id:'insp-sauvage', tipo:'Inspirado', ref:'Sauvage', nome:'Sauvage', desc:'Fresco, amadeirado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-invictus', tipo:'Inspirado', ref:'Invictus', nome:'Invictus', desc:'Fresco, esportivo e vibrante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
   { id:'insp-1m', tipo:'Inspirado', ref:'1 Million', nome:'1 Million', desc:'Doce, especiado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-bleu', tipo:'Inspirado', ref:'Bleu de Chanel', nome:'Bleu de Chanel', desc:'Cítrico, amadeirado e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-acqua', tipo:'Inspirado', ref:"Acqua di Giò", nome:"Acqua di Giò", desc:'Aquático, fresco e versátil.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-aventus', tipo:'Inspirado', ref:'Aventus', nome:'Aventus', desc:'Frutado, amadeirado e sofisticado.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-lemale', tipo:'Inspirado', ref:'Le Male', nome:'Le Male', desc:'Aromático, doce e clássico.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-lemaleelixir', tipo:'Inspirado', ref:'Le Male Elixir', nome:'Le Male Elixir', desc:'Doce, quente e intenso.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-ultramale', tipo:'Inspirado', ref:'Ultra Male', nome:'Ultra Male', desc:'Doce, frutado e potente.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-eros', tipo:'Inspirado', ref:'Eros', nome:'Eros', desc:'Fresco, doce e sedutor.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-dylan', tipo:'Inspirado', ref:'Dylan Blue', nome:'Dylan Blue', desc:'Fresco, aromático e amadeirado.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-allure', tipo:'Inspirado', ref:'Allure Homme Sport', nome:'Allure Homme Sport', desc:'Fresco, cítrico e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-boss', tipo:'Inspirado', ref:'Boss Bottled', nome:'Boss Bottled', desc:'Frutado, amadeirado e versátil.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-polored', tipo:'Inspirado', ref:'Polo Red', nome:'Polo Red', desc:'Frutado, doce e energético.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'insp-lacoste', tipo:'Inspirado', ref:'Lacoste L.12.12 Blanc', nome:'Lacoste L.12.12 Blanc', desc:'Fresco, limpo e casual.', publico:'Masculino', vol:'100 ml', preco:'R$ 99,90' },
+  { id:'brand-goodgirl', tipo:'Brand', ref:'Good Girl', nome:'Good Girl', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-lavie', tipo:'Brand', ref:'La Vie Est Belle', nome:'La Vie Est Belle', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-libre', tipo:'Brand', ref:'Libre', nome:'Libre', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-jadore', tipo:'Brand', ref:"J'adore", nome:"J'adore", desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-coco', tipo:'Brand', ref:'Coco Mademoiselle', nome:'Coco Mademoiselle', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-212vip', tipo:'Brand', ref:'212 VIP Rosé', nome:'212 VIP Rosé', desc:'Apresentação Brand em volume compacto.', publico:'Feminino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-sauvage', tipo:'Brand', ref:'Sauvage', nome:'Sauvage', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-invictus', tipo:'Brand', ref:'Invictus', nome:'Invictus', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-1m', tipo:'Brand', ref:'1 Million', nome:'1 Million', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90' },
+  { id:'brand-bleu', tipo:'Brand', ref:'Bleu de Chanel', nome:'Bleu de Chanel', desc:'Apresentação Brand em volume compacto.', publico:'Masculino', vol:'50 ml', preco:'R$ 149,90' },
   { id:'ara-yara', tipo:'Árabe', ref:'Lattafa · Yara', nome:'Yara', desc:'Doce, cremosa e feminina.', publico:'Feminino', vol:'100 ml', preco:'R$ 199,90' },
+  { id:'ara-ameerat', tipo:'Árabe', ref:'Lattafa · Ameerat Al Arab', nome:'Ameerat Al Arab', desc:'Doce, floral e elegante.', publico:'Feminino', vol:'100 ml', preco:'R$ 199,90' },
+  { id:'ara-badee', tipo:'Árabe', ref:"Lattafa · Bade'e Al Oud Amethyst", nome:"Bade'e Al Oud Amethyst", desc:'Floral, intenso e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 229,90' },
+  { id:'ara-fakharrose', tipo:'Árabe', ref:'Lattafa · Fakhar Rose', nome:'Fakhar Rose', desc:'Floral, doce e sofisticado.', publico:'Feminino', vol:'100 ml', preco:'R$ 199,90' },
   { id:'ara-khamrah', tipo:'Árabe', ref:'Lattafa · Khamrah', nome:'Khamrah', desc:'Doce, especiado e envolvente.', publico:'Unissex', vol:'100 ml', preco:'R$ 229,90' },
-  { id:'ori-goodgirl', tipo:'Original', ref:'Carolina Herrera · Good Girl', nome:'Good Girl', desc:'Perfume original de marca.', publico:'Feminino', vol:'80 ml', preco:'Consultar' }
+  { id:'ara-khamrahq', tipo:'Árabe', ref:'Lattafa · Khamrah Qahwa', nome:'Khamrah Qahwa', desc:'Café, especiarias e calor.', publico:'Unissex', vol:'100 ml', preco:'R$ 239,90' },
+  { id:'ara-oudglory', tipo:'Árabe', ref:'Lattafa · Oud for Glory', nome:'Oud for Glory', desc:'Oud, amadeirado e intenso.', publico:'Unissex', vol:'100 ml', preco:'R$ 229,90' },
+  { id:'ara-asad', tipo:'Árabe', ref:'Lattafa · Asad', nome:'Asad', desc:'Especiado, amadeirado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 199,90' },
+  { id:'ara-cdnim', tipo:'Árabe', ref:'Armaf · Club de Nuit Intense Man', nome:'Club de Nuit Intense Man', desc:'Cítrico, frutado e amadeirado.', publico:'Masculino', vol:'105 ml', preco:'R$ 299,90' },
+  { id:'ara-hawas', tipo:'Árabe', ref:'Rasasi · Hawas', nome:'Hawas', desc:'Aquático, frutado e vibrante.', publico:'Masculino', vol:'100 ml', preco:'R$ 279,90' },
+  { id:'ara-laventure', tipo:'Árabe', ref:"Al Haramain · L'Aventure", nome:"L'Aventure", desc:'Cítrico, amadeirado e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 249,90' },
+  { id:'ara-fakharblack', tipo:'Árabe', ref:'Lattafa · Fakhar Black', nome:'Fakhar Black', desc:'Aromático, fresco e amadeirado.', publico:'Masculino', vol:'100 ml', preco:'R$ 199,90' },
+  { id:'ori-goodgirl', tipo:'Original', ref:'Carolina Herrera · Good Girl', nome:'Good Girl', desc:'Perfume original de marca.', publico:'Feminino', vol:'80 ml', preco:'Consultar' },
+  { id:'ori-lavie', tipo:'Original', ref:'Lancôme · La Vie Est Belle', nome:'La Vie Est Belle', desc:'Perfume original de marca.', publico:'Feminino', vol:'75 ml', preco:'Consultar' },
+  { id:'ori-libre', tipo:'Original', ref:'Yves Saint Laurent · Libre', nome:'Libre', desc:'Perfume original de marca.', publico:'Feminino', vol:'90 ml', preco:'Consultar' },
+  { id:'ori-jadore', tipo:'Original', ref:"Dior · J'adore", nome:"J'adore", desc:'Perfume original de marca.', publico:'Feminino', vol:'100 ml', preco:'Consultar' },
+  { id:'ori-sauvage', tipo:'Original', ref:'Dior · Sauvage', nome:'Sauvage', desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar' },
+  { id:'ori-1m', tipo:'Original', ref:'Paco Rabanne · 1 Million', nome:'1 Million', desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar' },
+  { id:'ori-bleu', tipo:'Original', ref:'Chanel · Bleu de Chanel', nome:'Bleu de Chanel', desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar' },
+  { id:'ori-acqua', tipo:'Original', ref:"Giorgio Armani · Acqua di Giò", nome:"Acqua di Giò", desc:'Perfume original de marca.', publico:'Masculino', vol:'100 ml', preco:'Consultar' },
+  { id:'bc-212', tipo:'Brand Collection', ref:'Brand Collection · 212 VIP Branco', nome:'212 VIP Branco', desc:'Miniatura/frasco conforme catálogo.', publico:'Feminino', vol:'25 ml', preco:'Consultar' },
+  { id:'bc-alien', tipo:'Brand Collection', ref:'Brand Collection · Alien', nome:'Alien', desc:'Miniatura/frasco conforme catálogo.', publico:'Feminino', vol:'25 ml', preco:'Consultar' },
+  { id:'bc-lavie', tipo:'Brand Collection', ref:'Brand Collection · La Vie', nome:'La Vie', desc:'Miniatura/frasco conforme catálogo.', publico:'Feminino', vol:'25 ml', preco:'Consultar' },
+  { id:'bc-idole', tipo:'Brand Collection', ref:'Brand Collection · Idole', nome:'Idole', desc:'Miniatura/frasco conforme catálogo.', publico:'Feminino', vol:'80 ml', preco:'Consultar' },
+  { id:'bc-jadore', tipo:'Brand Collection', ref:"Brand Collection · J'adore", nome:"J'adore", desc:'Miniatura/frasco conforme catálogo.', publico:'Feminino', vol:'80 ml', preco:'Consultar' },
+  { id:'bc-coco', tipo:'Brand Collection', ref:'Brand Collection · Coco Chanel', nome:'Coco Chanel', desc:'Miniatura/frasco conforme catálogo.', publico:'Feminino', vol:'80 ml', preco:'Consultar' }
 ];
 
 let filtros = { tipo: 'todos', publico: 'todos', busca: '' };
