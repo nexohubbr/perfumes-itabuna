@@ -17,7 +17,6 @@
   body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
   a { color: inherit; text-decoration: none; } img { max-width: 100%; display: block; }
 
-  /* HEADER */
   header { position: sticky; top: 0; z-index: 50; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .logo { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 3px; font-size: 20px; color: var(--accent); }
@@ -28,7 +27,6 @@
   .btn-wa { background: transparent; color: #25d366; padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 14px; border: 1.5px solid #25d366; transition: all .2s; }
   .btn-wa:hover { background: #25d366; color: #000; }
 
-  /* HERO */
   .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; text-align: center; }
   .hero .tag { display: inline-block; font-size: 11px; letter-spacing: 3px; color: var(--accent); border: 1px solid var(--border-light); padding: 7px 16px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; }
   .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.15; margin-bottom: 18px; }
@@ -45,7 +43,6 @@
   .stat strong { display: block; color: var(--accent); font-size: 20px; font-family: 'Playfair Display', serif; }
   .stat span { font-size: 10px; color: var(--muted); letter-spacing: 1.5px; font-weight: 600; }
 
-  /* CATALOG */
   .catalog { max-width: 1200px; margin: 0 auto; padding: 50px 24px 70px; }
   .catalog-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
   .catalog-head h2 { font-family: 'Playfair Display', serif; font-size: 32px; }
@@ -68,24 +65,9 @@
   .bottle-svg { width: 65%; max-width: 200px; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); }
   .card-badge { position: absolute; top: 14px; left: 14px; background: var(--accent); color: #000; font-size: 10px; letter-spacing: 1.5px; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-family: 'Inter', sans-serif; }
   
-  /* BOTÕES DE AÇÃO NO CARD (ADMIN) */
-  .card-admin-actions {
-    display: none;
-    position: absolute;
-    right: 12px;
-    bottom: 12px;
-    z-index: 5;
-    flex-direction: row;
-    gap: 8px;
-  }
+  .card-admin-actions { display: none; position: absolute; right: 12px; bottom: 12px; z-index: 5; flex-direction: row; gap: 8px; }
   body.admin-mode .card-admin-actions { display: flex; }
-  .card-action-btn {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    padding: 8px 12px; border: 1px solid var(--accent); border-radius: 999px;
-    background: rgba(10,10,10,0.92); color: var(--accent-2);
-    font: 600 11px 'Inter', sans-serif; cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.35); transition: all 0.2s;
-  }
+  .card-action-btn { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--accent); border-radius: 999px; background: rgba(10,10,10,0.92); color: var(--accent-2); font: 600 11px 'Inter', sans-serif; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.35); transition: all 0.2s; }
   .card-action-btn:hover { background: var(--accent); color: #000; }
   .card-action-btn.edit-btn { border-color: var(--ok); color: var(--ok); }
   .card-action-btn.edit-btn:hover { background: var(--ok); color: #000; }
@@ -103,7 +85,6 @@
   .card-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
   .empty { text-align: center; padding: 70px 20px; color: var(--muted); font-size: 15px; }
 
-  /* SEÇÕES EXTRAS */
   .experience { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; }
   .experience-inner { max-width: 1200px; margin: 0 auto; }
   .experience h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); margin-bottom: 10px; }
@@ -145,30 +126,14 @@
   .footer-col a:hover { color: var(--accent-2); }
   .footer-bottom { max-width: 1200px; margin: 36px auto 0; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 11px; color: var(--muted); font-weight: 300; }
 
-  /* FLOATING WHATSAPP */
   .float-wa { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.35); z-index: 40; transition: transform .2s; }
   .float-wa:hover { transform: scale(1.08); }
   .float-wa svg { width: 30px; height: 30px; fill: #fff; }
 
-  /* BOTÃO ADICIONAR PRODUTO (ADMIN) */
-  .add-product-btn {
-    display: none;
-    padding: 12px 24px;
-    background: var(--ok);
-    color: #000;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s;
-  }
+  .add-product-btn { display: none; padding: 12px 24px; background: var(--ok); color: #000; border: none; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer; align-items: center; gap: 8px; transition: all 0.2s; }
   body.admin-mode .add-product-btn { display: inline-flex; }
   .add-product-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(52, 211, 153, 0.4); }
 
-  /* MODAL */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(6px); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
   .modal-overlay.active { display: flex; }
   .modal { background: var(--card); border: 1px solid var(--border); border-radius: 18px; max-width: 600px; width: 100%; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; }
@@ -179,14 +144,10 @@
   .modal-close:hover { background: var(--bg-2); color: var(--text); }
   .modal-body { padding: 22px 24px; overflow-y: auto; flex: 1; }
   
-  /* FORMULÁRIOS */
   .edit-form { display: flex; flex-direction: column; gap: 16px; }
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group label { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; }
-  .form-group input, .form-group select, .form-group textarea {
-    padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif; transition: border-color .2s;
-  }
+  .form-group input, .form-group select, .form-group textarea { padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif; transition: border-color .2s; }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
   .form-group textarea { resize: vertical; min-height: 80px; }
   .form-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px; }
@@ -240,10 +201,7 @@
 
 <section class="catalog" id="catalogo">
   <div class="catalog-head">
-    <div>
-      <h2>Catálogo</h2>
-      <p>Escolha por estilo, tipo ou público.</p>
-    </div>
+    <div><h2>Catálogo</h2><p>Escolha por estilo, tipo ou público.</p></div>
     <button class="add-product-btn" id="addProductBtn">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       Adicionar Novo Produto
@@ -340,52 +298,18 @@
 <div class="modal-overlay" id="editModal">
   <div class="modal">
     <div class="modal-head">
-      <div>
-        <h3 id="editFormTitle">Editar produto</h3>
-        <p>Altere as informações e salve.</p>
-      </div>
+      <div><h3 id="editFormTitle">Editar produto</h3><p>Altere as informações e salve.</p></div>
       <button class="modal-close" id="editModalClose" aria-label="Fechar">×</button>
     </div>
     <div class="modal-body">
       <form class="edit-form" id="editForm">
-        <div class="form-group">
-          <label for="editTipo">Tipo</label>
-          <select id="editTipo" required>
-            <option value="Inspirado">Inspirado</option>
-            <option value="Brand">Brand</option>
-            <option value="Árabe">Árabe</option>
-            <option value="Original">Original</option>
-            <option value="Brand Collection">Brand Collection</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="editRef">Referência</label>
-          <input type="text" id="editRef" required>
-        </div>
-        <div class="form-group">
-          <label for="editNome">Nome</label>
-          <input type="text" id="editNome" required>
-        </div>
-        <div class="form-group">
-          <label for="editDesc">Descrição</label>
-          <textarea id="editDesc" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="editPublico">Público</label>
-          <select id="editPublico" required>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Unissex">Unissex</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="editVol">Volume</label>
-          <input type="text" id="editVol" required>
-        </div>
-        <div class="form-group">
-          <label for="editPreco">Preço</label>
-          <input type="text" id="editPreco" required>
-        </div>
+        <div class="form-group"><label for="editTipo">Tipo</label><select id="editTipo" required><option value="Inspirado">Inspirado</option><option value="Brand">Brand</option><option value="Árabe">Árabe</option><option value="Original">Original</option><option value="Brand Collection">Brand Collection</option></select></div>
+        <div class="form-group"><label for="editRef">Referência</label><input type="text" id="editRef" required></div>
+        <div class="form-group"><label for="editNome">Nome</label><input type="text" id="editNome" required></div>
+        <div class="form-group"><label for="editDesc">Descrição</label><textarea id="editDesc" required></textarea></div>
+        <div class="form-group"><label for="editPublico">Público</label><select id="editPublico" required><option value="Feminino">Feminino</option><option value="Masculino">Masculino</option><option value="Unissex">Unissex</option></select></div>
+        <div class="form-group"><label for="editVol">Volume</label><input type="text" id="editVol" required></div>
+        <div class="form-group"><label for="editPreco">Preço</label><input type="text" id="editPreco" required></div>
         <div class="form-actions">
           <button type="button" class="btn-cancel" id="editFormCancel">Cancelar</button>
           <button type="submit" class="btn-save">Salvar alterações</button>
@@ -399,52 +323,18 @@
 <div class="modal-overlay" id="addProductModal">
   <div class="modal">
     <div class="modal-head">
-      <div>
-        <h3>Adicionar Novo Produto</h3>
-        <p>Preencha os dados para incluir no catálogo.</p>
-      </div>
+      <div><h3>Adicionar Novo Produto</h3><p>Preencha os dados para incluir no catálogo.</p></div>
       <button class="modal-close" id="addProductModalClose" aria-label="Fechar">×</button>
     </div>
     <div class="modal-body">
       <form class="edit-form" id="addProductForm">
-        <div class="form-group">
-          <label for="addTipo">Tipo</label>
-          <select id="addTipo" required>
-            <option value="Inspirado">Inspirado</option>
-            <option value="Brand">Brand</option>
-            <option value="Árabe">Árabe</option>
-            <option value="Original">Original</option>
-            <option value="Brand Collection">Brand Collection</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="addRef">Referência</label>
-          <input type="text" id="addRef" required>
-        </div>
-        <div class="form-group">
-          <label for="addNome">Nome</label>
-          <input type="text" id="addNome" required>
-        </div>
-        <div class="form-group">
-          <label for="addDesc">Descrição</label>
-          <textarea id="addDesc" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="addPublico">Público</label>
-          <select id="addPublico" required>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Unissex">Unissex</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="addVol">Volume</label>
-          <input type="text" id="addVol" required placeholder="Ex: 100 ml">
-        </div>
-        <div class="form-group">
-          <label for="addPreco">Preço</label>
-          <input type="text" id="addPreco" required placeholder="Ex: R$ 99,90">
-        </div>
+        <div class="form-group"><label for="addTipo">Tipo</label><select id="addTipo" required><option value="Inspirado">Inspirado</option><option value="Brand">Brand</option><option value="Árabe">Árabe</option><option value="Original">Original</option><option value="Brand Collection">Brand Collection</option></select></div>
+        <div class="form-group"><label for="addRef">Referência</label><input type="text" id="addRef" required></div>
+        <div class="form-group"><label for="addNome">Nome</label><input type="text" id="addNome" required></div>
+        <div class="form-group"><label for="addDesc">Descrição</label><textarea id="addDesc" required></textarea></div>
+        <div class="form-group"><label for="addPublico">Público</label><select id="addPublico" required><option value="Feminino">Feminino</option><option value="Masculino">Masculino</option><option value="Unissex">Unissex</option></select></div>
+        <div class="form-group"><label for="addVol">Volume</label><input type="text" id="addVol" required placeholder="Ex: 100 ml"></div>
+        <div class="form-group"><label for="addPreco">Preço</label><input type="text" id="addPreco" required placeholder="Ex: R$ 99,90"></div>
         <div class="form-actions">
           <button type="button" class="btn-cancel" id="addProductFormCancel">Cancelar</button>
           <button type="submit" class="btn-save">Adicionar Produto</button>
@@ -454,13 +344,12 @@
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast">Atualizado com sucesso!</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ================= DADOS DO CATÁLOGO ================= */
-const produtos = [
+const produtosBase = [
   { id:'insp-goodgirl', tipo:'Inspirado', ref:'Good Girl', nome:'Good Girl', desc:'Doce, floral e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
   { id:'insp-lavie', tipo:'Inspirado', ref:'La Vie Est Belle', nome:'La Vie Est Belle', desc:'Doce, elegante e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
   { id:'insp-libre', tipo:'Inspirado', ref:'Libre', nome:'Libre', desc:'Floral, sofisticado e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 99,90', imagem: '' },
@@ -527,7 +416,6 @@ const produtos = [
   { id:'bc-idole', tipo:'Brand Collection', ref:'Brand Collection · Idole', nome:'Idole', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
   { id:'bc-jadore', tipo:'Brand Collection', ref:"Brand Collection · J'adore", nome:"J'adore", desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
   { id:'bc-coco', tipo:'Brand Collection', ref:'Brand Collection · Coco Chanel', nome:'Coco Chanel', desc:'Miniatura/frasco conforme catálogo do fornecedor.', publico:'Feminino', vol:'80 ml', preco:'Consultar', imagem: '' },
-  // ADICIONADOS: ORIGINAIS E IMPORTADOS MAIS VENDIDOS
   { id:'ori-invictus200', tipo:'Original', ref:'Paco Rabanne · Invictus 200ml', nome:'Invictus 200ml', desc:'Perfume original importado. Um dos mais vendidos!', publico:'Masculino', vol:'200 ml', preco:'R$ 530,00', imagem: '' },
   { id:'ori-212vip200', tipo:'Original', ref:'Carolina Herrera · 212 VIP Men 200ml', nome:'212 VIP Men 200ml', desc:'Perfume original importado. Alta procura!', publico:'Masculino', vol:'200 ml', preco:'R$ 610,00', imagem: '' },
   { id:'ori-jadore100', tipo:'Original', ref:'Dior · J\'adore 100ml', nome:'J\'adore 100ml', desc:'Perfume original Dior. Um dos femininos mais vendidos!', publico:'Feminino', vol:'100 ml', preco:'R$ 810,00', imagem: '' },
@@ -539,11 +427,13 @@ const produtos = [
 ];
 
 /* ================= ESTADO ================= */
+let produtos = [...produtosBase];
 let filtros = { tipo: 'todos', publico: 'todos', busca: '' };
 const IMG_KEY = 'perfumes_itabuna_images_v2';
 let imagens = {};
 try { imagens = JSON.parse(localStorage.getItem(IMG_KEY) || '{}'); } catch(e) { imagens = {}; }
 let produtosEditados = {};
+let produtosExcluidos = new Set();
 
 /* ================= SVG FRASCO ================= */
 const bottleSVG = `<svg class="bottle-svg" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
@@ -614,10 +504,7 @@ function renderCard(p) {
         <div class="card-ref">${p.tipo} · Referência: ${p.ref}</div>
         <div class="card-title">${p.nome}</div>
         <div class="card-desc">${p.desc}</div>
-        <div class="card-meta">
-          <span>${p.publico}</span>
-          <span>${p.vol}</span>
-        </div>
+        <div class="card-meta"><span>${p.publico}</span><span>${p.vol}</span></div>
         <div class="card-price-label">PREÇO DE VITRINE</div>
         <div class="card-price">${p.preco}</div>
         <a class="card-btn" href="${waLink(p)}" target="_blank" rel="noopener">💬 Consultar no WhatsApp</a>
@@ -628,6 +515,7 @@ function renderCard(p) {
 
 function render() {
   const lista = produtos.filter(p => {
+    if (produtosExcluidos.has(p.id)) return false;
     if (filtros.tipo !== 'todos' && p.tipo !== filtros.tipo) return false;
     if (filtros.publico !== 'todos' && p.publico !== filtros.publico) return false;
     if (filtros.busca) {
@@ -647,7 +535,6 @@ function render() {
   }
 }
 
-/* ================= FILTROS ================= */
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const f = chip.dataset.filter;
@@ -664,11 +551,8 @@ document.getElementById('search').addEventListener('input', (e) => {
   render();
 });
 
-/* ================= FAQ ================= */
 document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    item.classList.toggle('open');
-  });
+  item.querySelector('.faq-q').addEventListener('click', () => item.classList.toggle('open'));
 });
 
 /* ================= SUPABASE ================= */
@@ -750,7 +634,7 @@ fileInput.addEventListener('change', async () => {
   }
 });
 
-/* ================= EDIÇÃO DE PRODUTO ================= */
+/* ================= EDITAR PRODUTO ================= */
 const editModal = document.getElementById('editModal');
 const editModalClose = document.getElementById('editModalClose');
 const editForm = document.getElementById('editForm');
@@ -825,26 +709,37 @@ editModalClose.addEventListener('click', () => editModal.classList.remove('activ
 editFormCancel.addEventListener('click', () => editModal.classList.remove('active'));
 editModal.addEventListener('click', (e) => { if (e.target === editModal) editModal.classList.remove('active'); });
 
-/* ================= EXCLUSÃO DE PRODUTO ================= */
+/* ================= EXCLUIR PRODUTO (AGORA PERSISTENTE!) ================= */
 async function deleteProduct(id) {
-  if (!confirm('ATENÇÃO! Tem certeza que deseja EXCLUIR este produto permanentemente?')) return;
+  if (!confirm('ATENÇÃO! Tem certeza que deseja EXCLUIR este produto permanentemente?\n\nEle não aparecerá mais no catálogo.')) return;
   
   try {
     if (supabaseClient) {
-      await supabaseClient.from('produtos_editados').delete().eq('id', id);
+      const { error } = await supabaseClient.from('produtos_excluidos').upsert({ id: id });
+      if (error) throw error;
     }
     
-    const index = produtos.findIndex(p => p.id === id);
-    if (index !== -1) {
-      produtos.splice(index, 1);
-      delete produtosEditados[id];
-      render();
-      showToast('Produto excluído com sucesso!');
-    }
+    produtosExcluidos.add(id);
+    render();
+    showToast('Produto excluído com sucesso!');
   } catch (error) {
     console.error('Erro ao excluir:', error);
-    alert('Erro ao excluir produto.');
+    alert('Erro ao excluir produto. Verifique se a tabela "produtos_excluidos" foi criada no Supabase.');
   }
+}
+
+/* ================= CARREGAR PRODUTOS EXCLUÍDOS ================= */
+async function loadExcludedProducts() {
+  if (!supabaseClient) return;
+  try {
+    const { data, error } = await supabaseClient.from('produtos_excluidos').select('id');
+    if (error) throw error;
+    if (data) {
+      data.forEach(item => {
+        produtosExcluidos.add(item.id);
+      });
+    }
+  } catch (e) { console.log('Não foi possível carregar produtos excluídos:', e); }
 }
 
 /* ================= ADICIONAR PRODUTO ================= */
@@ -931,9 +826,15 @@ if (adminMode) {
   document.body.classList.add('admin-mode');
 }
 
-render();
-loadEditedProducts();
-loadImagesFromSupabase();
+async function init() {
+  render();
+  await loadExcludedProducts();
+  await loadEditedProducts();
+  await loadImagesFromSupabase();
+  render();
+}
+
+init();
 </script>
 
 </body>
