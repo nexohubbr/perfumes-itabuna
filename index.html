@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfumes em Itabuna | Inspirados, Brand, Árabes e Originais com o Melhor Preço</title>
+<meta name="description" content="Compre perfumes em Itabuna com o melhor preço da cidade! Inspirados, Brand Collection, Árabes (Lattafa, Armaf) e Originais. Entrega rápida e garantia de qualidade.">
+<meta name="keywords" content="perfumes em itabuna, perfume barato itabuna, perfumes árabes itabuna, lattafa itabuna, perfumes inspirados bahia, melhor preço de perfume itabuna">
+<meta name="author" content="Perfumes Itabuna">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nexohubbr.github.io/perfumes-itabuna/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexohubbr.github.io/perfumes-itabuna/">
+<meta property="og:title" content="Perfumes em Itabuna | O Melhor Preço da Cidade">
+<meta property="og:description" content="Catálogo completo de perfumes Inspirados, Árabes e Originais em Itabuna-BA.">
+<meta property="og:image" content="https://nexohubbr.github.io/perfumes-itabuna/assets/og-image.jpg">
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PerfumeStore",
+  "name": "Perfumes Itabuna",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Itabuna",
+    "addressRegion": "BA",
+    "addressCountry": "BR"
+  },
+  "priceRange": "R$ 39,90 - R$ 810,00",
+  "telephone": "+5573991281765"
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0a0a0a; --bg-2: #111111; --card: #0f0f0f; --border: #2a2520;
+    --text: #f5f0e8; --muted: #9a9080; --accent: #c9a961; --accent-2: #e0c882;
+    --ok: #34d399; --danger: #ef4444; --info: #3b82f6;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  
+  header { position: sticky; top: 0; z-index: 50; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .logo { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 3px; font-size: 20px; color: var(--accent); }
+  .logo span { color: var(--text); }
+  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { font-size: 14px; color: var(--muted); transition: color .2s; font-weight: 500; }
+  .nav-links a:hover { color: var(--accent-2); }
+  .btn-wa { background: transparent; color: #25d366; padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 14px; border: 1.5px solid #25d366; transition: all .2s; }
+  .btn-wa:hover { background: #25d366; color: #000; }
+  
+  .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; text-align: center; }
+  .hero .tag { display: inline-block; font-size: 11px; letter-spacing: 3px; color: var(--accent); border: 1px solid var(--border); padding: 7px 16px; border-radius: 999px; margin-bottom: 24px; font-weight: 600; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.15; margin-bottom: 18px; }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero p { color: var(--muted); font-size: 17px; max-width: 680px; margin: 0 auto 32px; font-weight: 300; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer; border: 1.5px solid transparent; transition: all .2s; font-family: 'Inter', sans-serif; }
+  .btn-primary { background: var(--accent); color: #000; }
+  .btn-primary:hover { background: var(--accent-2); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; border-color: var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-2); }
+  
+  .hero-stats { margin-top: 50px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 12px; text-align: center; }
+  .stat strong { display: block; color: var(--accent); font-size: 20px; font-family: 'Playfair Display', serif; }
+  .stat span { font-size: 10px; color: var(--muted); letter-spacing: 1.5px; font-weight: 600; }
+  
+  .catalog { max-width: 1200px; margin: 0 auto; padding: 50px 24px 70px; }
+  .catalog-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+  .catalog-head h2 { font-family: 'Playfair Display', serif; font-size: 32px; }
+  .catalog-head p { color: var(--muted); font-size: 14px; }
+  
+  .btn-admin { background: var(--ok); color: #000; padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 14px; border: none; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-admin:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(52,211,153,0.3); }
+  
+  .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; padding: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+  .filter-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .filter-group + .filter-group { margin-left: 12px; padding-left: 16px; border-left: 1px solid var(--border); }
+  .filter-group label { font-size: 11px; color: var(--muted); letter-spacing: 1.5px; margin-right: 6px; font-weight: 600; }
+  .chip { padding: 7px 16px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); font-size: 12px; cursor: pointer; transition: all .2s; color: var(--muted); font-weight: 500; }
+  .chip:hover { color: var(--text); border-color: var(--accent); }
+  .chip.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+  .search { flex: 1; min-width: 200px; padding: 10px 16px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; }
+  .search:focus { outline: none; border-color: var(--accent); }
+  
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
+  .card { background: var(--card); border: 1.5px solid var(--border); border-radius: 20px; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; position: relative; }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 40px rgba(201,169,97,0.08); }
+  
+  .card-img { aspect-ratio: 1/1; background: linear-gradient(145deg, #1a1510, #0a0808); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .card-img .placeholder { color: var(--accent); font-size: 18px; text-align: center; padding: 10px; font-family: 'Playfair Display', serif; }
+  
+  .card-badge { position: absolute; top: 14px; left: 14px; background: var(--accent); color: #000; font-size: 10px; letter-spacing: 1.5px; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-family: 'Inter', sans-serif; }
+  
+  .card-actions { position: absolute; top: 14px; right: 14px; display: flex; gap: 8px; z-index: 10; }
+  .card-actions button { padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; border: none; cursor: pointer; transition: all .2s; display: flex; align-items: center; gap: 4px; }
+  .card-actions .btn-foto { background: var(--info); color: #fff; }
+  .card-actions .btn-edit { background: var(--accent); color: #000; }
+  .card-actions .btn-del { background: var(--danger); color: #fff; }
+  .card-actions button:hover { transform: scale(1.05); }
+  
+  .card-body { padding: 20px; }
+  .card-ref { font-size: 12px; color: var(--accent); letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 500; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
+  .card-desc { font-size: 13px; color: var(--muted); margin-bottom: 16px; font-weight: 300; }
+  .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .card-price-label { font-size: 10px; color: var(--muted); letter-spacing: 2px; font-weight: 600; margin-bottom: 4px; }
+  .card-price { color: var(--accent); font-weight: 700; font-size: 28px; margin-bottom: 16px; font-family: 'Playfair Display', serif; }
+  .card-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; background: transparent; border: 1.5px solid var(--border); border-radius: 12px; color: var(--accent); font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; text-align: center; font-family: 'Inter', sans-serif; }
+  .card-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+  
+  .empty { text-align: center; padding: 70px 20px; color: var(--muted); font-size: 15px; }
+  
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
+  .modal-overlay.active { display: flex; }
+  .modal { background: var(--card); border: 1px solid var(--border); border-radius: 18px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; }
+  .modal-head { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .modal-head h3 { font-family: 'Playfair Display', serif; font-size: 20px; }
+  .modal-close { background: transparent; border: none; color: var(--muted); font-size: 26px; cursor: pointer; width: 36px; height: 36px; border-radius: 10px; transition: all .2s; }
+  .modal-close:hover { background: var(--bg-2); color: var(--text); }
+  .modal-body { padding: 24px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.5px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--ok); color: #000; padding: 14px 26px; border-radius: 12px; font-weight: 600; font-size: 13px; z-index: 200; transition: transform .3s; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  
+  @media (max-width: 640px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .filter-group + .filter-group { margin-left: 0; padding-left: 0; border-left: none; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">PERFUMES <span>• ITABUNA</span></div>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#como-comprar">Como comprar</a>
+      <a href="#itabuna">Itabuna</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn-wa" href="https://wa.me/5573991281765" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <span class="tag">CATÁLOGO LOCAL • ITABUNA, BAHIA</span>
+  <h1>Perfumes em Itabuna para encontrar o seu <em>sem complicação</em>.</h1>
+  <p>Explore Inspirados, Brand, Árabes e Originais. Compare referência, público, volume e preço de vitrine — depois consulte a disponibilidade diretamente pelo WhatsApp.</p>
+  <div class="hero-actions">
+    <a href="#catalogo" class="btn btn-primary">Explorar catálogo</a>
+    <a href="https://wa.me/5573991281765" target="_blank" class="btn btn-ghost">Falar com atendimento</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><strong>4</strong><span>CATEGORIAS</span></div>
+    <div class="stat"><strong>3</strong><span>PÚBLICOS</span></div>
+    <div class="stat"><strong>PIX</strong><span>PAGAMENTO</span></div>
+    <div class="stat"><strong>BA</strong><span>ATENDIMENTO</span></div>
+  </div>
+</section>
+
+<section class="catalog" id="catalogo">
+  <div class="catalog-head">
+    <div>
+      <h2>Catálogo</h2>
+      <p>Escolha por estilo, tipo ou público.</p>
+    </div>
+    <button class="btn-admin" onclick="abrirModalProduto()">+ Adicionar Novo Produto</button>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label>TIPO</label>
+      <button class="chip active" data-filter="tipo" data-value="todos">Todos</button>
+      <button class="chip" data-filter="tipo" data-value="Inspirado">Inspirados</button>
+      <button class="chip" data-filter="tipo" data-value="Brand">Brand</button>
+      <button class="chip" data-filter="tipo" data-value="Árabe">Árabes</button>
+      <button class="chip" data-filter="tipo" data-value="Original">Originais</button>
+    </div>
+    <div class="filter-group">
+      <label>PÚBLICO</label>
+      <button class="chip active" data-filter="publico" data-value="todos">Todos</button>
+      <button class="chip" data-filter="publico" data-value="Feminino">Feminino</button>
+      <button class="chip" data-filter="publico" data-value="Masculino">Masculino</button>
+      <button class="chip" data-filter="publico" data-value="Unissex">Unissex</button>
+    </div>
+    <input type="text" class="search" id="search" placeholder="Buscar por nome ou referência...">
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none;">Nenhum perfume encontrado. Tente outra palavra ou combinação de filtros.</div>
+</section>
+
+<section class="experience">
+  <div class="experience-inner">
+    <h2>A experiência <em>Premium</em> onde realmente importa.</h2>
+    <p>Do catálogo ao perfume, em três passos simples.</p>
+    <div class="steps">
+      <div class="step"><span class="step-num">01 · ENCONTRE</span><h3>Pesquise</h3><p>Pesquise pelo nome da fragrância, referência, marca ou característica.</p></div>
+      <div class="step"><span class="step-num">02 · COMPARE</span><h3>Veja detalhes</h3><p>Veja categoria, público, volume e preço de vitrine.</p></div>
+      <div class="step"><span class="step-num">03 · CONSULTE</span><h3>Confirme</h3><p>Confirme disponibilidade e preço final pelo WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="buy" id="como-comprar">
+  <h2>Do catálogo ao perfume.</h2>
+  <p>Sua compra em três passos claros.</p>
+  <div class="buy-steps">
+    <div class="buy-step"><h3>1. Escolha sua referência</h3><p>Encontre a fragrância desejada.</p></div>
+    <div class="buy-step"><h3>2. Consulte no WhatsApp</h3><p>Confirme preço e estoque.</p></div>
+    <div class="buy-step"><h3>3. Combine a entrega</h3><p>Entrega por Uber/99 ou retirada local.</p></div>
+  </div>
+</section>
+
+<section class="seo" id="itabuna">
+  <div class="seo-inner">
+    <h2>Perfumes em Itabuna, Bahia</h2>
+    <p>Catálogo completo de perfumes Inspirados, Brand, Árabes e Originais em Itabuna-BA. Consulte disponibilidade pelo WhatsApp.</p>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <h2>Perguntas frequentes</h2>
+  <div class="faq-item"><div class="faq-q">O que é um perfume Inspirado?</div><div class="faq-a"><div class="faq-a-inner">Fragrância inspirada em uma referência olfativa conhecida.</div></div></div>
+  <div class="faq-item"><div class="faq-q">Como funciona a entrega?</div><div class="faq-a"><div class="faq-a-inner">Entrega por Uber/99 (custo do cliente) ou retirada local.</div></div></div>
+</section>
+
+<section class="cta">
+  <h2>Já sabe qual perfume procura?</h2>
+  <p>Consulte pelo WhatsApp.</p>
+  <a href="https://wa.me/5573991281765" target="_blank" class="btn btn-primary"> Consultar</a>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col"><h4>PERFUMES • ITABUNA</h4><p>Catálogo local.</p></div>
+    <div class="footer-col"><h4>PAGAMENTO</h4><p>PIX, Cartão, À vista</p></div>
+    <div class="footer-col"><h4>ATENDIMENTO</h4><p>Itabuna • BA<br><a href="https://wa.me/5573991281765">WhatsApp</a></p></div>
+  </div>
+  <div class="footer-bottom">© Perfumes em Itabuna.</div>
+</footer>
+
+<!-- Modal Adicionar/Editar Produto -->
+<div class="modal-overlay" id="modalProduto">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Adicionar Produto</h3>
+      <button class="modal-close" onclick="fecharModalProduto()">×</button>
+    </div>
+    <div class="modal-body">
+      <form id="formProduto">
+        <input type="hidden" id="prodId">
+        <div class="form-group">
+          <label>Tipo</label>
+          <select id="prodTipo" required>
+            <option value="Inspirado">Inspirado</option>
+            <option value="Brand">Brand</option>
+            <option value="Árabe">Árabe</option>
+            <option value="Original">Original</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Referência</label>
+          <input type="text" id="prodRef" required>
+        </div>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" id="prodNome" required>
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea id="prodDesc" rows="2"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Público</label>
+            <select id="prodPublico" required>
+              <option value="Feminino">Feminino</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Unissex">Unissex</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Volume</label>
+            <input type="text" id="prodVol" placeholder="100 ml" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preço</label>
+          <input type="text" id="prodPreco" placeholder="R$ 39,90" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Salvar no Supabase</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Upload Imagem -->
+<div class="modal-overlay" id="modalImagem">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Upload de Imagem</h3>
+      <button class="modal-close" onclick="fecharModalImagem()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Selecione a imagem</label>
+        <input type="file" id="imgFile" accept="image/*">
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="uploadImagem()">Enviar para Supabase</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ================= SUPABASE CONFIG =================
+const SUPABASE_URL = 'https://wsjztoyinbrhpbulcybw.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_c0kskWvLOnP0VWr6fQBlcA_dQv0fnKW';
+const BUCKET_NAME = 'imagens-perfumes';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ================= ESTADO =================
+let produtos = [];
+let filtros = { tipo: 'todos', publico: 'todos', busca: '' };
+let produtoEditando = null;
+let produtoImagemId = null;
+
+// ================= CARREGAR PRODUTOS DO SUPABASE =================
+async function carregarProdutos() {
+  try {
+    const { data, error } = await supabase.from('produtos').select('*').order('id', { ascending: true });
+    if (error) throw error;
+    
+    if (data && data.length > 0) {
+      produtos = data;
+    } else {
+      // Inserir produtos iniciais se tabela vazia
+      await inserirProdutosIniciais();
+    }
+    render();
+  } catch (error) {
+    console.error('Erro ao carregar produtos:', error);
+    showToast('Erro ao carregar produtos', true);
+  }
+}
+
+async function inserirProdutosIniciais() {
+  const produtosIniciais = [
+    { tipo:'Inspirado', ref:'Good Girl', nome:'Good Girl', desc:'Doce, floral e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'La Vie Est Belle', nome:'La Vie Est Belle', desc:'Doce, elegante e envolvente.', publico:'Feminino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'Libre', nome:'Libre', desc:'Floral, sofisticado e marcante.', publico:'Feminino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:"J'adore", nome:"J'adore", desc:'Floral, luminoso e elegante.', publico:'Feminino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'212 VIP Rosé', nome:'212 VIP Rosé', desc:'Floral, feminino e moderno.', publico:'Feminino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'Sauvage', nome:'Sauvage', desc:'Fresco, amadeirado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'Invictus', nome:'Invictus', desc:'Fresco, esportivo e vibrante.', publico:'Masculino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'1 Million', nome:'1 Million', desc:'Doce, especiado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'Bleu de Chanel', nome:'Bleu de Chanel', desc:'Cítrico, amadeirado e elegante.', publico:'Masculino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Inspirado', ref:'Acqua di Giò', nome:'Acqua di Giò', desc:'Aquático, fresco e versátil.', publico:'Masculino', vol:'100 ml', preco:'R$ 39,90' },
+    { tipo:'Brand', ref:'Good Girl', nome:'Good Girl', desc:'Apresentação Brand.', publico:'Feminino', vol:'50 ml', preco:'R$ 79,90' },
+    { tipo:'Brand', ref:'La Vie Est Belle', nome:'La Vie Est Belle', desc:'Apresentação Brand.', publico:'Feminino', vol:'50 ml', preco:'R$ 79,90' },
+    { tipo:'Brand', ref:'Sauvage', nome:'Sauvage', desc:'Apresentação Brand.', publico:'Masculino', vol:'50 ml', preco:'R$ 79,90' },
+    { tipo:'Brand', ref:'Invictus', nome:'Invictus', desc:'Apresentação Brand.', publico:'Masculino', vol:'50 ml', preco:'R$ 79,90' },
+    { tipo:'Brand', ref:'1 Million', nome:'1 Million', desc:'Apresentação Brand.', publico:'Masculino', vol:'50 ml', preco:'R$ 79,90' },
+    { tipo:'Árabe', ref:'Lattafa · Yara', nome:'Yara', desc:'Doce, cremosa e feminina.', publico:'Feminino', vol:'100 ml', preco:'R$ 219,90' },
+    { tipo:'Árabe', ref:'Lattafa · Khamrah', nome:'Khamrah', desc:'Doce, especiado e envolvente.', publico:'Unissex', vol:'100 ml', preco:'R$ 239,90' },
+    { tipo:'Árabe', ref:'Lattafa · Asad', nome:'Asad', desc:'Especiado, amadeirado e marcante.', publico:'Masculino', vol:'100 ml', preco:'R$ 289,90' },
+    { tipo:'Árabe', ref:'Armaf · Club de Nuit Intense Man', nome:'Club de Nuit Intense Man', desc:'Cítrico, frutado e amadeirado.', publico:'Masculino', vol:'105 ml', preco:'R$ 239,90' },
+    { tipo:'Árabe', ref:'Rasasi · Hawas', nome:'Hawas', desc:'Aquático, frutado e vibrante.', publico:'Masculino', vol:'100 ml', preco:'R$ 189,90' },
+    { tipo:'Original', ref:'Carolina Herrera · Good Girl', nome:'Good Girl', desc:'Perfume original.', publico:'Feminino', vol:'80 ml', preco:'R$ 699,90' },
+    { tipo:'Original', ref:'Lancôme · La Vie Est Belle', nome:'La Vie Est Belle', desc:'Perfume original.', publico:'Feminino', vol:'75 ml', preco:'R$ 699,90' },
+    { tipo:'Original', ref:'Dior · J\'adore', nome:'J\'adore', desc:'Perfume original.', publico:'Feminino', vol:'100 ml', preco:'R$ 810,00' },
+    { tipo:'Original', ref:'Paco Rabanne · Invictus 200ml', nome:'Invictus 200ml', desc:'Perfume original.', publico:'Masculino', vol:'200 ml', preco:'R$ 530,00' }
+  ];
+  
+  const { data, error } = await supabase.from('produtos').insert(produtosIniciais).select();
+  if (error) {
+    console.error('Erro ao inserir produtos iniciais:', error);
+  } else {
+    produtos = data;
+  }
+}
+
+// ================= RENDERIZAÇÃO =================
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+
+function waLink(p) {
+  const txt = `Olá! Quero consultar: ${p.tipo} - ${p.nome} (${p.vol}) - ${p.preco}`;
+  return `https://wa.me/5573991281765?text=${encodeURIComponent(txt)}`;
+}
+
+function renderCard(p) {
+  const imgSrc = p.imagem_url || '';
+  const imgHtml = imgSrc ? `<img src="${imgSrc}" alt="${p.nome}" loading="lazy">` : `<div class="placeholder">${p.nome}</div>`;
+  
+  return `
+    <article class="card" data-tipo="${p.tipo}" data-publico="${p.publico}" data-busca="${(p.nome+' '+p.ref+' '+p.desc).toLowerCase()}">
+      <div class="card-img">
+        <span class="card-badge">${p.tipo.toUpperCase()}</span>
+        <div class="card-actions">
+          <button class="btn-foto" onclick="abrirModalImagem(${p.id})">📷 Foto</button>
+          <button class="btn-edit" onclick="editarProduto(${p.id})">✏️ Editar</button>
+          <button class="btn-del" onclick="excluirProduto(${p.id})">🗑️ Excluir</button>
+        </div>
+        ${imgHtml}
+      </div>
+      <div class="card-body">
+        <div class="card-ref">${p.tipo} · Referência: ${p.ref}</div>
+        <div class="card-title">${p.nome}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-meta">
+          <span>${p.publico}</span>
+          <span>${p.vol}</span>
+        </div>
+        <div class="card-price-label">PREÇO DE VITRINE</div>
+        <div class="card-price">${p.preco}</div>
+        <a class="card-btn" href="${waLink(p)}" target="_blank">💬 Consultar no WhatsApp</a>
+      </div>
+    </article>
+  `;
+}
+
+function render() {
+  const lista = produtos.filter(p => {
+    if (filtros.tipo !== 'todos' && p.tipo !== filtros.tipo) return false;
+    if (filtros.publico !== 'todos' && p.publico !== filtros.publico) return false;
+    if (filtros.busca) {
+      const b = filtros.busca.toLowerCase();
+      const hay = (p.nome + ' ' + p.ref + ' ' + p.desc + ' ' + p.tipo + ' ' + p.publico).toLowerCase();
+      if (!hay.includes(b)) return false;
+    }
+    return true;
+  });
+
+  if (lista.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    grid.innerHTML = lista.map(renderCard).join('');
+  }
+}
+
+// ================= FILTROS =================
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const f = chip.dataset.filter;
+    const v = chip.dataset.value;
+    filtros[f] = v;
+    document.querySelectorAll(`.chip[data-filter="${f}"]`).forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('search').addEventListener('input', (e) => {
+  filtros.busca = e.target.value.trim();
+  render();
+});
+
+// ================= MODAL PRODUTO =================
+function abrirModalProduto() {
+  produtoEditando = null;
+  document.getElementById('modalTitle').textContent = 'Adicionar Produto';
+  document.getElementById('formProduto').reset();
+  document.getElementById('prodId').value = '';
+  document.getElementById('modalProduto').classList.add('active');
+}
+
+function fecharModalProduto() {
+  document.getElementById('modalProduto').classList.remove('active');
+}
+
+async function editarProduto(id) {
+  const p = produtos.find(x => x.id === id);
+  if (!p) return;
+  
+  produtoEditando = id;
+  document.getElementById('modalTitle').textContent = 'Editar Produto';
+  document.getElementById('prodId').value = p.id;
+  document.getElementById('prodTipo').value = p.tipo;
+  document.getElementById('prodRef').value = p.ref;
+  document.getElementById('prodNome').value = p.nome;
+  document.getElementById('prodDesc').value = p.desc;
+  document.getElementById('prodPublico').value = p.publico;
+  document.getElementById('prodVol').value = p.vol;
+  document.getElementById('prodPreco').value = p.preco;
+  document.getElementById('modalProduto').classList.add('active');
+}
+
+async function excluirProduto(id) {
+  if (!confirm('Excluir este produto do Supabase?')) return;
+  
+  try {
+    const { error } = await supabase.from('produtos').delete().eq('id', id);
+    if (error) throw error;
+    
+    produtos = produtos.filter(p => p.id !== id);
+    render();
+    showToast('Produto excluído do Supabase!');
+  } catch (error) {
+    console.error('Erro ao excluir:', error);
+    showToast('Erro ao excluir produto', true);
+  }
+}
+
+document.getElementById('formProduto').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const data = {
+    tipo: document.getElementById('prodTipo').value,
+    ref: document.getElementById('prodRef').value,
+    nome: document.getElementById('prodNome').value,
+    desc: document.getElementById('prodDesc').value,
+    publico: document.getElementById('prodPublico').value,
+    vol: document.getElementById('prodVol').value,
+    preco: document.getElementById('prodPreco').value
+  };
+  
+  try {
+    if (produtoEditando) {
+      const { error } = await supabase.from('produtos').update(data).eq('id', produtoEditando);
+      if (error) throw error;
+      
+      const idx = produtos.findIndex(p => p.id === produtoEditando);
+      if (idx !== -1) produtos[idx] = { ...produtos[idx], ...data };
+    } else {
+      const { data: newData, error } = await supabase.from('produtos').insert([data]).select();
+      if (error) throw error;
+      
+      if (newData && newData.length > 0) {
+        produtos.push(newData[0]);
+      }
+    }
+    
+    render();
+    fecharModalProduto();
+    showToast('Produto salvo no Supabase!');
+  } catch (error) {
+    console.error('Erro ao salvar:', error);
+    showToast('Erro ao salvar produto', true);
+  }
+});
+
+// ================= MODAL IMAGEM =================
+function abrirModalImagem(id) {
+  produtoImagemId = id;
+  document.getElementById('imgFile').value = '';
+  document.getElementById('modalImagem').classList.add('active');
+}
+
+function fecharModalImagem() {
+  document.getElementById('modalImagem').classList.remove('active');
+}
+
+async function uploadImagem() {
+  const file = document.getElementById('imgFile').files[0];
+  if (!file || !produtoImagemId) {
+    showToast('Selecione uma imagem', true);
+    return;
+  }
+  
+  try {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${produtoImagemId}.${fileExt}`;
+    
+    // Upload para Supabase Storage
+    const { error: uploadError } = await supabase.storage
+      .from(BUCKET_NAME)
+      .upload(fileName, file, { upsert: true });
+    
+    if (uploadError) throw uploadError;
+    
+    // Obter URL pública
+    const { data: { publicUrl } } = supabase.storage
+      .from(BUCKET_NAME)
+      .getPublicUrl(fileName);
+    
+    // Atualizar produto no banco
+    const { error: updateError } = await supabase
+      .from('produtos')
+      .update({ imagem_url: publicUrl })
+      .eq('id', produtoImagemId);
+    
+    if (updateError) throw updateError;
+    
+    // Atualizar local
+    const idx = produtos.findIndex(p => p.id === produtoImagemId);
+    if (idx !== -1) {
+      produtos[idx].imagem_url = publicUrl;
+    }
+    
+    render();
+    fecharModalImagem();
+    showToast('Imagem enviada para o Supabase!');
+  } catch (error) {
+    console.error('Erro no upload:', error);
+    showToast('Erro ao enviar imagem', true);
+  }
+}
+
+// ================= UTILS =================
+function showToast(msg, error = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (error ? ' error' : '');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Fechar modais ao clicar fora
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', (e) => {
+    if (e.target === m) {
+      m.classList.remove('active');
+    }
+  });
+});
+
+// ================= INIT =================
+carregarProdutos();
+</script>
+
+</body>
+</html>
