@@ -21,7 +21,7 @@
 
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="Perfumes em Itabuna | O Melhor Preço da Cidade">
-<meta property="twitter:description" content="Catálogo completo de perfumes em Itabuna-BA.">
+<meta property="twitter:description" content="Catálogo completo de perfumes Inspirados, Árabes e Originais em Itabuna-BA.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +107,6 @@
   .bottle-svg { width: 65%; max-width: 200px; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); }
   .card-badge { position: absolute; top: 14px; left: 14px; background: var(--accent); color: #000; font-size: 10px; letter-spacing: 1.5px; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-family: 'Inter', sans-serif; z-index: 2; }
   
-  /* BOTÕES DE AÇÃO MOVIDOS PARA A PARTE INFERIOR DO CARD */
   .card-actions { 
     display: none; 
     gap: 6px; 
@@ -197,7 +196,6 @@
   .float-wa:hover { transform: scale(1.08); }
   .float-wa svg { width: 30px; height: 30px; fill: #fff; }
 
-  /* MODAL */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(6px); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
   .modal-overlay.active { display: flex; }
   .modal { background: var(--card); border: 1px solid var(--border); border-radius: 18px; max-width: 500px; width: 100%; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; }
@@ -234,6 +232,7 @@
 
   .toast { position: fixed; bottom: 34px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--ok); color: #000; padding: 14px 26px; border-radius: 12px; font-weight: 600; font-size: 13px; z-index: 200; transition: transform .3s; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
   .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.error { background: var(--danger); color: #fff; }
 
   @media (max-width: 640px) {
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
@@ -530,6 +529,14 @@ const bottleSVG = `<svg class="bottle-svg" viewBox="0 0 200 280" xmlns="http://w
   <text x="100" y="175" text-anchor="middle" fill="#c9a961" font-family="Playfair Display, serif" font-size="14" font-weight="600" letter-spacing="2">PERFUME</text>
 </svg>`;
 
+/* ================= SUPABASE ================= */
+const SUPABASE_URL = 'https://wsjztoyinbrhpbulcybw.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_c0kskWvLOnP0VWr6fQBlcA_dQv0fnKW';
+const BUCKET_NAME = 'imagens-perfumes';
+const supabaseClient = window.supabase?.createClient 
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) 
+  : null;
+
 /* ================= RENDERIZAÇÃO ================= */
 const grid = document.getElementById('grid');
 const empty = document.getElementById('empty');
@@ -549,7 +556,7 @@ function imageForProduct(p) {
 
 function imageMarkup(p) {
   const src = imageForProduct(p);
-  if (src) return `<img src="${escapeAttr(src)}" alt="${escapeAttr(p.nome)}" loading="lazy">`;
+  if (src) return `<img src="${escapeAttr(src)}" alt="${escapeAttr(p.nome)}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\\'placeholder\\'>${escapeAttr(p.nome)}</div>'">`;
   return bottleSVG;
 }
 
@@ -626,13 +633,49 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-/* ================= SUPABASE ================= */
-const SUPABASE_URL = 'https://wsjztoyinbrhpbulcybw.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_c0kskWvLOnP0VWr6fQBlcA_dQv0fnKW';
-const BUCKET_NAME = 'imagens-perfumes';
-const supabaseClient = window.supabase?.createClient
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
-  : null;
+/* ================= CARREGAR DADOS DO SUPABASE ================= */
+async function loadImagesFromSupabase() {
+  if (!supabaseClient) {
+    console.log('Supabase não carregou, usando localStorage');
+    render();
+    return;
+  }
+  try {
+    const { data, error } = await supabaseClient.from('catalogo_imagens').select('id, imagem_url');
+    if (error) throw error;
+    const fromDb = {};
+    (data || []).forEach(row => {
+      if (row && row.id && row.imagem_url) fromDb[row.id] = row.imagem_url;
+    });
+    imagens = { ...imagens, ...fromDb };
+    try { localStorage.setItem(IMG_KEY, JSON.stringify(imagens)); } catch (_) {}
+    render();
+  } catch (error) {
+    console.error('Erro ao carregar imagens do Supabase:', error);
+    render();
+  }
+}
+
+async function loadEditedProducts() {
+  if (!supabaseClient) return;
+  try {
+    const { data, error } = await supabaseClient.from('produtos_editados').select('*');
+    if (error) throw error;
+    if (data) {
+      data.forEach(item => {
+        produtosEditados[item.id] = item;
+        const index = produtos.findIndex(p => p.id === item.id);
+        if (index !== -1) {
+          produtos[index] = { ...produtos[index], ...item };
+        } else {
+          produtos.push(item);
+        }
+      });
+    }
+  } catch (e) {
+    console.log('Não foi possível carregar produtos editados:', e);
+  }
+}
 
 /* ================= UPLOAD IMAGEM ================= */
 const modal = document.getElementById('modal');
@@ -648,20 +691,6 @@ fileInput.accept = 'image/*';
 fileInput.id = 'supabaseFileInput';
 fileInput.style.display = 'none';
 document.body.appendChild(fileInput);
-
-async function loadImagesFromSupabase() {
-  if (!supabaseClient) return;
-  try {
-    const { data, error } = await supabaseClient.from('catalogo_imagens').select('id, imagem_url');
-    if (error) throw error;
-    const fromDb = {};
-    (data || []).forEach(row => { if (row && row.id && row.imagem_url) fromDb[row.id] = row.imagem_url; });
-    imagens = { ...imagens, ...fromDb };
-    try { localStorage.setItem(IMG_KEY, JSON.stringify(imagens)); } catch (_) {}
-    render();
-    if (modal.classList.contains('active')) renderUploadGrid();
-  } catch (error) { console.error('Erro ao carregar imagens:', error); }
-}
 
 function renderUploadGrid() {
   uploadGrid.innerHTML = produtos.map(p => `
@@ -738,9 +767,9 @@ function abrirUpload(id) {
   fileInput.click();
 }
 
-function showToast(msg) {
+function showToast(msg, isError = false) {
   toast.textContent = msg;
-  toast.classList.add('show');
+  toast.className = 'toast show' + (isError ? ' error' : '');
   clearTimeout(showToast.timer);
   showToast.timer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
@@ -749,26 +778,6 @@ uploadBtn.addEventListener('click', () => { renderUploadGrid(); modal.classList.
 modalClose.addEventListener('click', () => modal.classList.remove('active'));
 modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('active'); });
-
-/* ================= CARREGAR PRODUTOS EDITADOS DO SUPABASE ================= */
-async function loadEditedProducts() {
-  if (!supabaseClient) return;
-  try {
-    const { data, error } = await supabaseClient.from('produtos_editados').select('*');
-    if (error) throw error;
-    if (data) {
-      data.forEach(item => {
-        produtosEditados[item.id] = item;
-        const index = produtos.findIndex(p => p.id === item.id);
-        if (index !== -1) {
-          produtos[index] = { ...produtos[index], ...item };
-        } else {
-          produtos.push(item);
-        }
-      });
-    }
-  } catch (e) { console.log('Não foi possível carregar produtos editados:', e); }
-}
 
 /* ================= EDITAR PRODUTO ================= */
 const editModal = document.getElementById('editModal');
@@ -901,19 +910,18 @@ addProductModalClose.addEventListener('click', () => addProductModal.classList.r
 addProductFormCancel.addEventListener('click', () => addProductModal.classList.remove('active'));
 addProductModal.addEventListener('click', (e) => { if (e.target === addProductModal) addProductModal.classList.remove('active'); });
 
-/* ================= SEGURANÇA: BOTÃO OCULTO ================= */
+/* ================= MODO ADMIN ================= */
 const urlParams = new URLSearchParams(window.location.search);
 const adminMode = urlParams.get('admin') === 'secreto123';
 if (adminMode) {
   document.body.classList.add('admin-mode');
-  uploadBtn.style.display = 'flex';
 }
 
 /* ================= INIT ================= */
 async function init() {
   await loadEditedProducts();
   render();
-  loadImagesFromSupabase();
+  await loadImagesFromSupabase();
 }
 
 init();
